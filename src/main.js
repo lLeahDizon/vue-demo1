@@ -8,17 +8,20 @@ new Vue({
   components: { Demo },
   data: {
     visible: true,
+    n: 0,
   },
   template: `
   <div>
-    <button @click="toggle">toggle</button>
-    <hr>
-    <Demo v-if="visible"/>
+    {{n}}
+    <Demo :message="n" :fn="add" />
   </div>
   `,
   methods: {
     toggle() {
       this.visible = !this.visible;
+    },
+    add() {
+      this.n += 1;
     },
   },
 }).$mount("#lemon");
